@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Dashboard{% endblock %}{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4"><div><p class="text-secondary mb-1">STUDENT OVERVIEW</p><h2 class="fw-bold">Hello, {{ session.get('name') }} 👋</h2></div><a class="btn btn-primary" href="{{ url_for('predict') }}">+ New prediction</a></div>
+<div class="row g-3 mb-4"><div class="col-md-6"><div class="stat-card"><span class="text-secondary">Total predictions</span><div class="display-5 fw-bold">{{ total }}</div></div></div><div class="col-md-6"><div class="stat-card"><span class="text-secondary">Placed predictions</span><div class="display-5 fw-bold">{{ placed }}</div></div></div></div>
+<div class="feature-card"><h4 class="fw-bold">Recent predictions</h4><div class="table-responsive"><table class="table mt-3"><thead><tr><th>Date</th><th>CGPA</th><th>Result</th><th>Probability</th></tr></thead><tbody>
+{% for item in recent %}<tr><td>{{ item.created_at }}</td><td>{{ item.cgpa }}</td><td><span class="badge {{ 'text-bg-success' if item.result=='Placed' else 'text-bg-warning' }}">{{ item.result }}</span></td><td>{{ item.probability }}%</td></tr>{% else %}<tr><td colspan="4" class="text-secondary">No predictions yet. Start with the predictor.</td></tr>{% endfor %}
+</tbody></table></div></div>{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block title %}Home | Placement Analytics{% endblock %}
+{% block content %}
+<section class="hero rounded-4 p-4 p-lg-5">
+<div class="row align-items-center"><div class="col-lg-7">
+<span class="badge text-bg-light mb-3">AI-powered student insights</span><h1 class="display-4 fw-bold">Turn your skills into <span class="accent">career opportunities.</span></h1>
+<p class="lead mt-3">Explore placement readiness with a student-friendly analytics and prediction platform.</p>
+<a href="{{ url_for('signup') }}" class="btn btn-light btn-lg mt-3">Get Started →</a>
+<a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg mt-3 ms-2">Login</a>
+</div><div class="col-lg-5 mt-4 mt-lg-0"><div class="hero-card"><div class="small text-secondary">PLACEMENT READINESS</div><div class="display-3 fw-bold">87%</div><div class="progress"><div class="progress-bar" style="width:87%"></div></div><p class="mt-3 mb-0">Analyze academic and skill indicators</p></div></div></div>
+</section>
+<div class="row g-4 my-4">{% for title,desc,icon in [('ML Prediction','Estimate placement probability from key student indicators.','📈'),('Analytics Dashboard','Review your prediction history and results.','📊'),('Student-friendly','Simple tools to explore career readiness.','🎯')]}
+<div class="col-md-4"><div class="feature-card h-100"><div class="fs-2">{{ icon }}</div><h4 class="mt-3">{{ title }}</h4><p class="text-secondary mb-0">{{ desc }}</p></div></div>{% endfor %}</div>
+{% endblock %}

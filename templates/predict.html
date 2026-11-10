@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block title %}Placement Predictor{% endblock %}{% block content %}
+<div class="row justify-content-center"><div class="col-lg-8"><div class="form-card"><p class="text-secondary mb-1">MACHINE LEARNING</p><h2 class="fw-bold">Placement Predictor</h2><p class="text-secondary">Enter your academic and skill details.</p>
+<form method="post" class="row g-3">
+<div class="col-md-6"><label class="form-label">CGPA (0–10)</label><input class="form-control" name="cgpa" type="number" min="0" max="10" step=".01" required></div>
+<div class="col-md-6"><label class="form-label">Aptitude score (0–100)</label><input class="form-control" name="aptitude" type="number" min="0" max="100" required></div>
+<div class="col-md-6"><label class="form-label">Communication score (0–100)</label><input class="form-control" name="communication" type="number" min="0" max="100" required></div>
+<div class="col-md-6"><label class="form-label">Internships (0–20)</label><input class="form-control" name="internships" type="number" min="0" max="20" required></div>
+<div class="col-md-6"><label class="form-label">Projects completed (0–20)</label><input class="form-control" name="projects" type="number" min="0" max="20" required></div>
+<div class="col-12"><button class="btn btn-primary w-100">Predict placement</button></div></form>
+{% if result is not none %}<div class="result-box mt-4"><div class="text-secondary">PREDICTION RESULT</div><h3 class="fw-bold {{ 'text-success' if result=='Placed' else 'text-warning' }}">{{ result }}</h3><div class="display-5 fw-bold">{{ probability }}%</div><p class="mb-0">Estimated probability from the demo model. This is not a guarantee of employment.</p></div>{% endif %}
+</div></div></div>{% endblock %}
